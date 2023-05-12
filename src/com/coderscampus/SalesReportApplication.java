@@ -1,6 +1,7 @@
 package com.coderscampus;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -45,8 +46,8 @@ public class SalesReportApplication {
         Optional<Sales> minSales = salesReport.stream()
 											  .min((Sales o1, Sales o2) -> o1.getSales() - o2.getSales());
         
-        System.out.println("The best month for " + make + " was: " + maxSales.orElse(new Sales("Jan-00", "0")).getDate());
-		System.out.println("The worst month for " + make + " was: " + minSales.orElse(new Sales("Jan-00", "0")).getDate());
+        System.out.println("The best month for " + make + " was: " + maxSales.orElse(new Sales("Jan-00", "0")).getDate().format(DateTimeFormatter.ofPattern("MMMM-yyyy")));
+		System.out.println("The worst month for " + make + " was: " + minSales.orElse(new Sales("Jan-00", "0")).getDate().format(DateTimeFormatter.ofPattern("MMMM-yyyy")));
 		System.out.println("");
 		
 	}
