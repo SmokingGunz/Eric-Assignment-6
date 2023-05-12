@@ -11,7 +11,7 @@ public class SalesReportApplication {
 
 	public static void main(String[] args) throws IOException {
 
-		FileService fileService = new FileService();
+		FileService fileService = new FileService(); 
 		
 		List<Sales> modelSReport = fileService.getData("modelS.csv");
 		List<Sales> model3Report = fileService.getData("model3.csv");
@@ -32,9 +32,9 @@ public class SalesReportApplication {
 														   .collect(Collectors.groupingBy(y -> y.getDate().getYear()));
 		
 		String totalSalesByYear = salesByYear.entrySet().stream()
-				.map(e -> e.getKey() + " -> " + e.getValue().stream()
-				.collect(Collectors.summingInt(Sales::getSales)))
-                .collect(Collectors.joining("\n"));
+														.map(e -> e.getKey() + " -> " + e.getValue().stream()
+														.collect(Collectors.summingInt(Sales::getSales)))
+														.collect(Collectors.joining("\n"));
 		
         System.out.println(totalSalesByYear);
         

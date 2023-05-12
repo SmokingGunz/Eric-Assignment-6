@@ -13,7 +13,7 @@ public class Sales {
 		this.sale = Integer.parseInt(sales);
 
 	}
-
+ 
 	public YearMonth getDate() {
 		return date;
 	}
